@@ -33,8 +33,14 @@ var socket = io();
 
 //3 서버메시지를 대기하고 있다가 화면에 뿌려주는 곳
 socket.on('server message', function(data){
-    $('#chatLog').append('<li> '+ data.message + ' </li>');
+    $('#chatLog').append('<li> '+ data.username +':'+ data.message + ' </li>');
 });
+
+//누군가가 로그인했을 떄
+socket.on('join', function(data){
+    $('#chatLog').append('<li> ' + data.username + '님이 방을 들어왔습니다 </li>');
+});
+
 
 //1
 $(document).ready(function(){
