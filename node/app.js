@@ -45,5 +45,10 @@ io.on('connection', (socket) => {
             message: data.message
         })
 
-    })
+    });
+
+    //로그아웃 나갈때
+    socket.on('disconnect', () => {
+        socket.broadcast.emit('leave', { username });
+    });
 })

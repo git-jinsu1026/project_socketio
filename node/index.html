@@ -41,6 +41,10 @@ socket.on('join', function(data){
     $('#chatLog').append('<li> ' + data.username + '님이 방을 들어왔습니다 </li>');
 });
 
+//로그아웃 할 때
+socket.on('leave', function(data){
+    $('#chatLog').append('<li> ' + data.username + '님이 방을 나갔습니다 </li>');
+});
 
 //1
 $(document).ready(function(){
